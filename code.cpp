@@ -3,34 +3,60 @@ using namespace std;
 
 int main(){
 
+    int arr[1000];
     int n;
-    cout<<"Enter the number to be Checked: ";
+    cout<<"Enter how many numbers to be Inserted: ";
     cin>>n;
 
-    int original = n;
-    int count = 0;
-    while(n){
-        count++;
-        n /= 10;
+    cout<<"Enter the numbers: "<<endl;
+    for(int i = 0;i<n;i++){
+        cin>>arr[i];
     }
 
-    int temp = original;
-    int ans = 0,rem;
-    while(temp){
-        rem = temp % 10;
-        temp /= 10;
-        int power = 1;
-        for(int i = 0;i<count;i++){
-            power *= rem;
+    cout<<"\nOriginal Array: "<<endl;
+    for(int i = 0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+
+    for(int i = 0;i<n-1;i++){
+        int minIndex = i;
+        for(int j = i + 1;j<n;j++){
+            if(arr[minIndex] > arr[j]){
+                minIndex = j;
+            }
         }
-        ans = power + ans;
+        swap(arr[minIndex],arr[i]);
     }
 
-    if(ans = original){
-        cout<<"Its an armstrong number";
+    cout<<"\nSorted Array: "<<endl;
+    for(int i = 0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+
+    int key;
+    cout<<"\nEnter the element to be found: ";
+    cin>>key;
+
+    int start = 0,index = -1;
+    int end = n -1;
+    while(start <= end){
+        int mid = start + (end - start)/2;
+
+        if(arr[mid] == key){
+            index = mid;
+            break;
+        } else if(arr[mid] < key){
+            start = mid + 1;
+        } else {
+            end = mid -1;
+        }
+    }
+
+    if(index >= 0){
+
+    cout<<"Element found at index: "<<index;
     } else {
-        cout<<"Not an armstrong number";
+        cout<<"Element not present";
     }
-
     return 0;
 }
