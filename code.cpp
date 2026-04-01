@@ -15,6 +15,5 @@ int main(){
         fibo1 = fibo2;
         fibo2 = ans;
     }
-
     return 0;
 }
