@@ -3,17 +3,21 @@ using namespace std;
 
 int main(){
 
-    int n;
-    cout<<"Enter the terms till to find the sequence: ";
-    cin>>n;
+    int arr[6] = {6,5,4,3,2,1};
+    int n = 6;
 
-    int fibo1 = 0,fibo2 = 1;
-    cout<<"The fibonacci sequence till "<<n<<"is: "<<endl;
-    for(int i = 0;i<n;i++){
-        int ans = fibo1 + fibo2;
-        cout<<ans<<" ";
-        fibo1 = fibo2;
-        fibo2 = ans;
+   for(int i = 1;i<n;i++){
+    for(int j = i;j>0;j--){
+        if(arr[j] < arr[j -1]){
+            swap(arr[j],arr[j -1]);
+        }
     }
+   }
+
+    cout<<"Sorted array: "<<endl;
+    for(int i = 0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+
     return 0;
 }
