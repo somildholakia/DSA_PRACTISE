@@ -22,7 +22,6 @@ int main(){
             break;
         }
     }
-
     if(!isEqual){
         cout<<"Sum is not equal";
     } else {
