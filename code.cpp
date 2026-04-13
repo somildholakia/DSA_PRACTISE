@@ -11,7 +11,6 @@ int main(){
     for(int i = 0;i<n;i++){
         totalSum += arr[i];
     }
-
     int prefixSum = 0;
     for(int i = 0;i<n-1;i++){
         prefixSum += arr[i];
